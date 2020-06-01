@@ -6,7 +6,7 @@ struct Item {
 	int value;
 	int weight;
 
-	Item(int id, int _value, int _weight) : id(id), value(_value), weight(_weight) {};
+	Item(int _id, int _value, int _weight) : id(_id), value(_value), weight(_weight) {};
 	Item() = default;
 };
 

@@ -23,18 +23,44 @@ std::vector<Item> loadDataFromFile(const std::string& filename, int &knapsackSiz
 	}
 	else {
 		std::cout << "Succesfully read from file " << filename << '\n';
-		
 		int value{};
 		int weight{};
 
 		file >> itemsSize >> knapsackSize;
-		for (int i = 0; i < itemsSize; ++i) {
+
+		if (itemsSize <= 0 || knapsackSize <= 0) {
+			std::cerr << "Invalid data - must be greater than 0. - Please restart.";
+			std::cin.get();
+			exit(1);
+		}
+
+		std::cout << "Knapsack size = " << knapsackSize << '\n';
+		std::cout << "Items size = " << itemsSize << '\n';
+		std::cout << '\n';
+
+		int id = 0;
+		while(!file.eof()) {
 			file >> weight >> value;
-			Item it(i, value, weight);
+
+			if (weight <= 0 || value <= 0) {
+				std::cerr << "Invalid data - must be greater than 0. - Please restart.";
+				std::cin.get();
+				exit(1);
+			}
+
+			Item it(id, value, weight);
 			loadedData.push_back(it);
+			id++;
 		}
 
 	}
+
+	if (loadedData.size() != itemsSize) {
+		std::cerr << "Invalid data - not enough items defined. - Please restart.";
+		std::cin.get();
+		exit(1);
+	}
+
 	file.close();
 	return loadedData;
 }

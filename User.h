@@ -8,5 +8,6 @@
 
 int getUserInput(const std::string& message = "");
 std::vector<Item> getItemsFromUser(int numberOfItems);
+bool askUser(const std::string& message = "");
 
 #endif // !USER_H

@@ -7,6 +7,6 @@
 
 void knapsackGreedy(std::vector<Item> items, int knapsackCapacity);
 void knapsackBrute(std::vector<Item> items, int knapsackCapacity);
-void knapsackDynamic(std::vector<Item> items, int knapsackCapacity);
+void knapsackDynamic(std::vector<Item> items, const int knapsackCapacity);
 
 #endif // !KNAPSACK_H
